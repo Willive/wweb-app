@@ -1,0 +1,30 @@
+.Attendees {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+h1{
+  text-align: center;
+}
+
+.Attendee{
+  border: 1px solid rgb(33, 233, 243);
+  border-radius: 8px;
+  width: 140px;
+  height:160px;
+  overflow-y: scroll;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  margin: 8px;
+}
+
+.Attendee:hover{
+  transform: scale(1.02);
+}
+
+.Attendee-image{
+  width: 100px;
+  height: 100px;
+}

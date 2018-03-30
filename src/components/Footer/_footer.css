@@ -1,0 +1,26 @@
+footer{
+  width: 100%;
+  text-align: center;
+}
+
+footer div{
+  width: 100%;
+  border-top:1px solid;
+  padding-top: 8px;
+  height: 28px;
+  background-color: rgb(168,168,168);
+}
+
+footer p{
+  margin: 0;
+  color:#093973;
+}
+
+footer div:first-child{
+  background-color: rgb(238, 238, 238);
+}
+
+footer div:last-child{
+  background-color: rgb(144,144,144);
+  
+}
