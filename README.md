@@ -7,9 +7,9 @@ Front End Coding Challenge
 
 # About
   Because the Endpoints below require an API Key, I did not feel comfortable hardcoding that into the App.
-  Meetup Allows you to create a signed API Call with unchangable query params to get around this.
+  Meetup Allows you to create a signed API call with unchangable query params to get around this.
   That means the default event you will see are the rsvps for the event from 1st call at the time this was created.
-  If you wish to get the current 1st event using this api, you can enter your own api key [Available Here](https://secure.meetup.com/meetup_api/key/).
+  If you wish to get the current 1st event for the group reactjs-dallas and execute both calls, you can enter your own api key [Available Here](https://secure.meetup.com/meetup_api/key/).
 
 # Description
 
