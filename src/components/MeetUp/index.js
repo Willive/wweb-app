@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { eventInfoRequested } from '../../reducer'
-import { withRouter } from 'react-router-dom'
 import { Tabs, Tab } from 'material-ui/Tabs'
 import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton';
@@ -11,7 +10,7 @@ import Attendees from './Attendees'
 import './_meetup.css'
 
 const style = {
-  margin: 12,
+  margin: 12
 }
 
 class MeetUp extends React.Component {
@@ -89,4 +88,4 @@ const mapStateToProps = state => ({
   error: state.error
 })
 
-export default connect(mapStateToProps, { eventInfoRequested })(withRouter(MeetUp))
+export default connect(mapStateToProps, { eventInfoRequested })(MeetUp)
