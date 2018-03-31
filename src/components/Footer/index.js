@@ -1,5 +1,6 @@
-import React from 'react';
-import './_footer.css';
+import React from 'react'
+
+import './_footer.css'
 
 export default function Footer() {
   return (
@@ -8,10 +9,10 @@ export default function Footer() {
         <p>William Wherry</p>
       </div>
       <div className="Footer-date">
-        <p>Created On: March 28 2018</p>
+        <a href="https://www.linkedin.com/in/william-wherry-477ab0150/">LinkedIn</a>
       </div>
       <div className="Footer-time">
-        <p>Created In: 6hrs</p>
+        <a href="mailto:williamwherryiv@gmail.com">Email</a>
       </div>
     </footer>
   )

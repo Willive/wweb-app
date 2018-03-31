@@ -1,16 +1,24 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from 'react'
+import { connect } from 'react-redux'
 import { eventInfoRequested } from '../../reducer'
 import { withRouter } from 'react-router-dom'
-import { Tabs, Tab } from 'material-ui/Tabs';
+import { Tabs, Tab } from 'material-ui/Tabs'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton';
+import AppContainer from '../AppContainer'
 import Attendees from './Attendees'
+
 import './_meetup.css'
+
+const style = {
+  margin: 12,
+}
 
 class MeetUp extends React.Component {
   constructor() {
     super()
     this.state = {
-      yes: [], no: [], waitlisted: []
+      yes: [], no: [], waitlisted: [], keyValue: ''
     }
   }
 
@@ -29,25 +37,49 @@ class MeetUp extends React.Component {
     }
   }
 
+  componentDidUpdate(_, prevState) {
+    if (!this.state.keyValue && prevState.keyValue && this.props.error) {
+      this.props.eventInfoRequested()
+    }
+  }
+
+  onSubmit = () => this.props.eventInfoRequested(this.state.keyValue)
+
+  APIKEY = () =>
+    <div>
+      <a>Enter Your MeetUp Api Key to Use the Unsigned API Endpoints</a>
+      <div className="Api-key">
+        <p>Meetup Api Key:</p>
+        <TextField hintText="MeetUp Api Key" errorText={this.props.error && 'Invalid Key'}
+          onKeyDown={({ keyCode }) => keyCode === 13 && this.state.keyValue && this.onSubmit()}
+          onChange={(_, value) => this.setState({ keyValue: value })} style={{ paddingLeft: 8 }} />
+        <RaisedButton label="Submit" secondary={true} style={style}
+          onClick={this.onSubmit} disabled={!this.state.keyValue} />
+      </div>
+    </div>
+
   render() {
-    const { state: { yes, no, waitlisted }, props: { attendees } } = this
+    const { state: { yes, no, waitlisted }, props: { attendees }, APIKEY } = this
     return (
-      <section className="MeetUp" >
-        <Tabs >
-          <Tab label="All">
-            <Attendees attendees={attendees} title="All Invites" />
-          </Tab>
-          <Tab label="Yes" >
-            <Attendees attendees={yes} title="People Who Said Yes" />
-          </Tab>
-          <Tab label="No">
-            <Attendees attendees={no} title="People Who Said No" />
-          </Tab>
-          <Tab label="Waitlisted">
-            <Attendees attendees={waitlisted} title="Waitlisted" />
-          </Tab>
-        </Tabs>
-      </section>
+      <AppContainer SubHeaderChild={() => <h3>MeetUp ReactJS Dallas RSVPS</h3>}>
+        <section className="MeetUp" >
+          <APIKEY />
+          <Tabs >
+            <Tab label="All">
+              <Attendees attendees={attendees} title="All Invites" />
+            </Tab>
+            <Tab label="Yes" >
+              <Attendees attendees={yes} title="People Who Said Yes" />
+            </Tab>
+            <Tab label="No">
+              <Attendees attendees={no} title="People Who Said No" />
+            </Tab>
+            <Tab label="Waitlisted">
+              <Attendees attendees={waitlisted} title="Waitlisted" />
+            </Tab>
+          </Tabs>
+        </section>
+      </AppContainer>
     )
   }
 }

@@ -1,6 +1,7 @@
 import React from 'react';
-import './_attendees.css'
 import Attendee from './Attendee'
+
+import './_attendees.css'
 
 export default function Attendees(props) {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import AppComponent from './components/App';
+import Routes from './Routes';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga'
@@ -21,9 +21,10 @@ const store = createStore(
 
 const App = () => (
   <MuiThemeProvider>
-    <AppComponent />
+    <Routes />
   </MuiThemeProvider>
 )
+
 sagaMiddleware.run(saga)
 
 render(

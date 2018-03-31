@@ -16,6 +16,10 @@ footer p{
   color:#093973;
 }
 
+footer a{
+  margin: 0;
+  color:#093973;
+}
 footer div:first-child{
   background-color: rgb(238, 238, 238);
 }
