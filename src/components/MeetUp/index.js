@@ -45,8 +45,8 @@ class MeetUp extends React.Component {
 
   onSubmit = () => this.props.eventInfoRequested(this.state.keyValue)
 
-  APIKEY = () =>
-    <div>
+  APIKey = () =>
+    <div className="Api">
       <a>Enter Your MeetUp Api Key to Use the Unsigned API Endpoints</a>
       <div className="Api-key">
         <p>Meetup Api Key:</p>
@@ -59,11 +59,11 @@ class MeetUp extends React.Component {
     </div>
 
   render() {
-    const { state: { yes, no, waitlisted }, props: { attendees }, APIKEY } = this
+    const { state: { yes, no, waitlisted }, props: { attendees }, APIKey } = this
     return (
       <AppContainer SubHeaderChild={() => <h3>MeetUp ReactJS Dallas RSVPS</h3>}>
         <section className="MeetUp" >
-          <APIKEY />
+          <APIKey />
           <Tabs >
             <Tab label="All">
               <Attendees attendees={attendees} title="All Invites" />

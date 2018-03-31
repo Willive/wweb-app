@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.Api{
+  margin: 0 8px;
+}
+
 .Api-key{
   display: flex;  
   align-items: center;
