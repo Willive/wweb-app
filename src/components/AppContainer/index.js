@@ -6,12 +6,12 @@ import SubHeader from '../SubHeader'
 import './_app.css'
 
 export default function AppContainer(props) {
-  const SubHeaderChild = props.SubHeaderChild
+  const { SubHeaderChild } = props
   return (
     <div className="App">
       <header>
         <Header />
-        {props.SubHeaderChild && <SubHeader><SubHeaderChild /></SubHeader>}
+        {SubHeaderChild && <SubHeader><SubHeaderChild /></SubHeader>}
       </header>
       {props.children}
       <Footer />
